@@ -4,7 +4,6 @@ import LandingPage from './pages/LandingPage';
 import SearchPage from './pages/SearchPage';
 import StatsPage from './pages/StatsPage';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import {motion} from 'framer-motion'
 import { Provider } from 'react-redux';
 import store from './redux/store';
 

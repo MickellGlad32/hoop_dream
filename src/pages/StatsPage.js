@@ -21,7 +21,7 @@ function StatsPage() {
             .then(data => {
                 dispatch(setStats(data.data))
             })
-    }, [])
+    }, [dispatch, id])
     console.log(stats)
     const info = stats.map(stat => {
         return (
