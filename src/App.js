@@ -4,13 +4,27 @@ import LandingPage from './pages/LandingPage';
 import SearchPage from './pages/SearchPage';
 import StatsPage from './pages/StatsPage';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import {motion} from 'framer-motion'
+import { Provider } from 'react-redux';
+import store from './redux/store';
 
 
-function App() {
+function App({Component, pageProps, router}) {
   return (
+    <Provider store={store}>
     <Router>
-    <div className="App">
+      {/* <motion.div key={router.route} initial="pageInitial" animate="pageAnimate" variants={{
+        pageInitial: {
+          opacity: 0,
+        },
+        pageAnimate: {
+          opacity: 1
+        }
+      }}> */}
+    
       <Switch>
+      <div className="App">
+        {/* <Component {...pageProps} /> */}
         <Route exact path='/'>
           <LandingPage/>
         </Route>
@@ -20,11 +34,12 @@ function App() {
         <Route path = '/stats/:id'>
           <StatsPage/>
         </Route>
+        </div>
       </Switch>
-
-    </div>
-
+    
+      {/* </motion.div> */}
     </Router>
+    </Provider>
   );
 }
 

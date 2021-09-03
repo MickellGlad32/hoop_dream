@@ -1,8 +1,8 @@
-import { useState } from 'react'
-import { useDispatch } from 'react-redux';
-import { Image, Col, Container, Row } from 'react-bootstrap'
-import { actionSetSearch } from '../redux/actions/search';
+import { useState } from 'react';
+import { Image, Col, Container, Row,Nav,Navbar } from 'react-bootstrap'
+import { Link } from 'react-router-dom';
 import './Pages.css';
+
 
 
 
@@ -41,6 +41,11 @@ function SearchPage() {
 
 
         <>
+        <Container>
+                    <Navbar.Brand to="/" as={Link}>Hoop Dream</Navbar.Brand>
+                    <Nav className="me-auto">
+                    </Nav>
+                </Container>
             <div className="full-screen-video-container">
                 <video autoPlay loop muted>
                     <source src="/video/Thunderstorm.mp4" type="video/mp4" />
@@ -48,11 +53,12 @@ function SearchPage() {
                 <div className="full-screen-video-content">
                     <form onSubmit={handleSubmit} className="search-form">
                         <label>
-                            <input onChange={(e) => setSearch(e.target.value)} type="text" value={search} placeholder="Enter Player Name Here" />
+                            <input autosize={true} onChange={(e) => setSearch(e.target.value)} type="text" value={search} placeholder="Player Name Here" />
                             <button type="submit">Search</button>
                         </label>
                     </form>
                     <br />
+                    
                     <Container >
                         <Row>
                             <Col xs={6} md={6}>
