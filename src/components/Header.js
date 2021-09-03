@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '184vh'
+        height: '185vh'
     },
     appbar: {
         background: 'none',
