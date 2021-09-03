@@ -1,5 +1,7 @@
 import { useState } from 'react'
+import { useDispatch } from 'react-redux';
 import { Image, Col, Container, Row } from 'react-bootstrap'
+import { actionSetSearch } from '../redux/actions/search';
 import './Pages.css';
 
 
@@ -7,6 +9,7 @@ import './Pages.css';
 
 
 function SearchPage() {
+    // const dispatch = useDispatch()
     const [search, setSearch] = useState('');
     const [player, setPlayer] = useState([]);
     const [playerID, setPlayerID] = useState([])
@@ -45,14 +48,14 @@ function SearchPage() {
                 <div className="full-screen-video-content">
                     <form onSubmit={handleSubmit} className="search-form">
                         <label>
-                            <input onChange={(e) => setSearch(e.target.value)} type="text" value={search} placeholder="Search for your favorite player ie.Lebron James" />
+                            <input onChange={(e) => setSearch(e.target.value)} type="text" value={search} placeholder="Enter Player Name Here" />
                             <button type="submit">Search</button>
                         </label>
                     </form>
                     <br />
                     <Container >
                         <Row>
-                            <Col xs={6} md={8}>
+                            <Col xs={6} md={6}>
                                 <Image src={player.strRender} fluid />
                             </Col>
                             <Col xs={6} md={6}>
@@ -83,15 +86,3 @@ function SearchPage() {
 export default SearchPage
 
 
-{/* <form onSubmit={handleSubmit}>
-                <label>
-                    <input onChange={(e) => setSearch(e.target.value)} type="text" value={search} placeholder="Search for your favorite player ie.Lebron James" />
-                    <button type="submit">Search</button>
-                </label>
-                <br /> */}
-{/* <label>
-                    <select>
-                        <option>Player</option>
-                        <option>Team</option>
-                    </select>
-                </label> */}

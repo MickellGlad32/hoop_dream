@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react';
 import './Pages.css';
 import React from 'react'
-import {Table} from 'react-bootstrap'
+import { Table } from 'react-bootstrap'
 
 function StatsPage() {
     let { id } = useParams();
@@ -12,7 +12,6 @@ function StatsPage() {
         fetch(`https://www.balldontlie.io/api/v1/stats?seasons[]=2020&player_ids[]=${id}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 setStats(data.data)
             })
     }, [])
@@ -20,43 +19,53 @@ function StatsPage() {
     const info = stats.map(stat => {
         return (
             <>
-                    <div className="full-screen-video-container">
-                        <video autoPlay loop muted>
-                            <source src="/video/Tunnel.mp4" type="video/mp4" />
-                        </video>
-                <div className="full-screen-video-content">
-                    <Table striped bordered hover variant="light">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Username</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td colSpan="2">Larry the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
-                        </tbody>
-                    </Table>
+                <div className="full-screen-video-container">
+                    <video autoPlay loop muted>
+                        <source src="/video/playerBackground.mp4" type="video/mp4" />
+                    </video>
+                    <div className="full-screen-video-content">
+                        <Table striped bordered hover variant="light">
+                            <thead>
+                                <tr>
+                                    <th>Mins</th>
+                                    <th>Pts</th>
+                                    <th>D.Rebs</th>
+                                    <th>Assts</th>
+                                    <th>Stls</th>
+                                    <th>Blks</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>#</td>
+                                    <td>#</td>
+                                    <td>#</td>
+                                    <td>#</td>
+                                    <td>#</td>
+                                </tr>
+                                <tr>
+                                     <td>#</td>
+                                    <td>{stats.min}</td>
+                                    <td>{stats.pts}</td>
+                                    <td>{stats.rebs}</td>
+                                    <td>{stats.ast}</td>
+                                    <td>{stats.stl}</td>
+                                    <td>{stats.blk}</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td >Larry the Bird</td>
+                                    <td>@twitter</td>
+                                    <td>#</td>
+                                    <td>#</td>
+                                    <td>#</td>
+                                </tr>
+                            </tbody>
+                        </Table>
 
-                </div>
                     </div>
+                </div>
             </>
         )
     })

@@ -1,9 +1,10 @@
 import './App.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import HomePage from './pages/HomePage';
+import LandingPage from './pages/LandingPage';
 import SearchPage from './pages/SearchPage';
 import StatsPage from './pages/StatsPage';
 import 'bootstrap/dist/css/bootstrap.min.css'
+
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
     <div className="App">
       <Switch>
         <Route exact path='/'>
-          <HomePage/>
+          <LandingPage/>
         </Route>
         <Route path ='/search'>
           <SearchPage/>
